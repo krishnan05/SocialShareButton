@@ -1,7 +1,7 @@
 ﻿/**
  * SocialShareButton - A lightweight, customizable social sharing component
- * @version 1.0.0
- * @license MIT
+ * @version 1.0.3
+ * @license GPL-3.0
  */
 
 class SocialShareButton {
@@ -16,6 +16,8 @@ class SocialShareButton {
       theme: options.theme || 'dark',
       buttonText: options.buttonText || 'Share',
       customClass: options.customClass || '',
+      buttonColor: options.buttonColor || '',
+      buttonHoverColor: options.buttonHoverColor || '',
       onShare: options.onShare || null,
       onCopy: options.onCopy || null,
       container: options.container || null,
@@ -39,6 +41,7 @@ class SocialShareButton {
     }
     this.createModal();
     this.attachEvents();
+    this.applyCustomColors();
   }
 
   createButton() {
@@ -150,15 +153,28 @@ class SocialShareButton {
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);
     const encodedDesc = encodeURIComponent(description);
-    const hashtagString = hashtags.join(',');
+    const hashtagString = hashtags.length ? '#' + hashtags.join(' #') : '';
     
-    // Exciting share messages for different platforms (using Unicode for emoji compatibility)
-    const whatsappMessage = `\u{1F680} ${title}\n\nLive on the site \u{1F440}\nClean UI, smooth flow \u{2014} worth peeking\n\u{1F447}`;
-    const facebookMessage = `${title} \u{1F440}\nPretty clean project \u{2014} worth a look\n\u{1F447}`;
-    const twitterMessage = `${title} \u{1F440}\n\nClean build, no noise.\n\u{1F447}`;
-    const telegramMessage = `\u{1F517} ${title}\n\nLive + working\nClean stuff, take a look \u{1F447}`;
-    const redditTitle = `${title}${description ? ' - ' + description : ''}`;
-    const emailBody = `Hey \u{1F44B}\n\nSharing a clean project I came across:\n${title}\n\nLive, simple, and usable \u{2014} take a look \u{1F447}`;
+    // Build platform-specific messages with customizable parameters
+    let whatsappMessage, facebookMessage, twitterMessage, telegramMessage, redditTitle, emailBody;
+    
+    // WhatsApp: Casual with emoji
+    whatsappMessage = `\u{1F680} ${title}${description ? '\n\n' + description : ''}${hashtagString ? '\n\n' + hashtagString : ''}\n\nLive on the site \u{1F440}\nClean UI, smooth flow \u{2014} worth peeking\n\u{1F447}`;
+    
+    // Facebook: Title + Description
+    facebookMessage = `${title}${description ? '\n\n' + description : ''}${hashtagString ? '\n\n' + hashtagString : ''}`;
+    
+    // Twitter: Title + Description + Hashtags + Via
+    twitterMessage = `${title}${description ? '\n\n' + description : ''}${hashtagString ? '\n' + hashtagString : ''}`;
+    
+    // Telegram: Casual with emoji
+    telegramMessage = `\u{1F517} ${title}${description ? '\n\n' + description : ''}${hashtagString ? '\n\n' + hashtagString : ''}\n\nLive + working\nClean stuff, take a look \u{1F447}`;
+    
+    // Reddit: Title + Description
+    redditTitle = `${title}${description ? ' - ' + description : ''}`;
+    
+    // Email: Friendly greeting
+    emailBody = `Hey \u{1F44B}\n\nSharing a clean project I came across:\n${title}${description ? '\n\n' + description : ''}\n\nLive, simple, and usable \u{2014} take a look \u{1F447}`;
     
     const encodedWhatsapp = encodeURIComponent(whatsappMessage);
     const encodedFacebook = encodeURIComponent(facebookMessage);
@@ -170,7 +186,7 @@ class SocialShareButton {
     const urls = {
       whatsapp: `https://wa.me/?text=${encodedWhatsapp}%20${encodedUrl}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedFacebook}`,
-      twitter: `https://twitter.com/intent/tweet?text=${encodedTwitter}&url=${encodedUrl}${via ? '&via=' + via : ''}${hashtags.length ? '&hashtags=' + hashtagString : ''}`,
+      twitter: `https://twitter.com/intent/tweet?text=${encodedTwitter}&url=${encodedUrl}${via ? '&via=' + encodeURIComponent(via) : ''}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTelegram}`,
       reddit: `https://reddit.com/submit?url=${encodedUrl}&title=${encodedReddit}`,
@@ -297,6 +313,42 @@ class SocialShareButton {
         input.value = this.options.url;
       }
     }
+
+    // Reapply custom colors if color option changed
+    if (options.buttonColor || options.buttonHoverColor) {
+      this.applyCustomColors();
+    }
+  }
+
+  applyCustomColors() {
+    // Only apply if buttonColor option is provided
+    if (!this.options.buttonColor && !this.options.buttonHoverColor) return;
+
+    // Create or update style tag for custom colors
+    let styleTag = document.getElementById('social-share-custom-colors');
+    if (!styleTag) {
+      styleTag = document.createElement('style');
+      styleTag.id = 'social-share-custom-colors';
+      document.head.appendChild(styleTag);
+    }
+
+    let css = '';
+    const buttonClass = this.options.customClass ? `.${this.options.customClass}.social-share-btn` : '.social-share-btn';
+    
+    if (this.options.buttonColor) {
+      css += `${buttonClass} {
+        background-color: ${this.options.buttonColor} !important;
+        background-image: none !important;
+      }\n`;
+    }
+
+    if (this.options.buttonHoverColor) {
+      css += `${buttonClass}:hover {
+        background-color: ${this.options.buttonHoverColor} !important;
+      }\n`;
+    }
+
+    styleTag.textContent = css;
   }
 }
 

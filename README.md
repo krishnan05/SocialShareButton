@@ -1,10 +1,67 @@
-# SocialShareButton
+# <!-- Don't delete it -->
+<div name="readme-top"></div>
 
-Lightweight social sharing component for web applications. Zero dependencies, framework-agnostic.
+<!-- Organization Logo -->
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+  <img alt="Stability Nexus" src="public/aossie_logo.svg" width="175">
+  <img src="public/todo-project-logo.svg" width="175" />
+</div>
+
+&nbsp;
+
+<!-- Organization Name -->
+<div align="center">
+
+[![Static Badge](https://img.shields.io/badge/AOSSIE-/TODO-228B22?style=for-the-badge&labelColor=FFC517)](https://TODO.aossie/)
+
+<!-- Correct deployed url to be added -->
+
+</div>
+
+<!-- Organization/Project Social Handles -->
+<p align="center">
+<!-- Telegram -->
+<a href="https://t.me/StabilityNexus">
+<img src="https://img.shields.io/badge/Telegram-black?style=flat&logo=telegram&logoColor=white&logoSize=auto&color=24A1DE" alt="Telegram Badge"/></a>
+&nbsp;&nbsp;
+<!-- X (formerly Twitter) -->
+<a href="https://x.com/aossie_org">
+<img src="https://img.shields.io/twitter/follow/aossie_org" alt="X (formerly Twitter) Badge"/></a>
+&nbsp;&nbsp;
+<!-- Discord -->
+<a href="https://discord.gg/hjUhu33uAn">
+<img src="https://img.shields.io/discord/1022871757289422898?style=flat&logo=discord&logoColor=white&logoSize=auto&label=Discord&labelColor=5865F2&color=57F287" alt="Discord Badge"/></a>
+&nbsp;&nbsp;
+<!-- Medium -->
+<a href="https://news.stability.nexus/">
+  <img src="https://img.shields.io/badge/Medium-black?style=flat&logo=medium&logoColor=black&logoSize=auto&color=white" alt="Medium Badge"></a>
+&nbsp;&nbsp;
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/company/aossie/">
+  <img src="https://img.shields.io/badge/LinkedIn-black?style=flat&logo=LinkedIn&logoColor=white&logoSize=auto&color=0A66C2" alt="LinkedIn Badge"></a>
+&nbsp;&nbsp;
+<!-- Youtube -->
+<a href="https://www.youtube.com/@StabilityNexus">
+  <img src="https://img.shields.io/youtube/channel/subscribers/UCZOG4YhFQdlGaLugr_e5BKw?style=flat&logo=youtube&logoColor=white&logoSize=auto&labelColor=FF0000&color=FF0000" alt="Youtube Badge"></a>
+</p>
+
+---
+
+<div align="center">
+<h1>SocialShareButton</h1>
+</div>
+
+[TODO](https://TODO.stability.nexus/) Lightweight social sharing component for web applications. Zero dependencies, framework-agnostic.
+
+
+
+
+
 
 [![npm version](https://img.shields.io/npm/v/social-share-button-aossie.svg)](https://www.npmjs.com/package/social-share-button-aossie)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
+---
 ## Features
 
 - 🌐 Multiple platforms: WhatsApp, Facebook, X, LinkedIn, Telegram, Reddit, Email
@@ -22,8 +79,8 @@ Lightweight social sharing component for web applications. Zero dependencies, fr
 ### Via CDN (Recommended)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.css">
-<script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
+<script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
 ```
 
 ---
@@ -40,11 +97,11 @@ Lightweight social sharing component for web applications. Zero dependencies, fr
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
 </body>
 ```
 
@@ -97,13 +154,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link 
           rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.css" 
+          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css" 
         />
       </head>
       <body>
         {children}
         <Script 
-          src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.js"
+          src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"
           strategy="beforeInteractive"
         />
       </body>
@@ -191,13 +248,13 @@ export default function Document() {
       <Head>
         <link 
           rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.css" 
+          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css" 
         />
       </Head>
       <body>
         <Main />
         <NextScript />
-        <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
       </body>
     </Html>
   );
@@ -274,11 +331,11 @@ declare global {
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
 </head>
 <body>
   <div id="app"></div>
-  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/src/social-share-button.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
 </body>
 ```
 
@@ -300,17 +357,139 @@ new window.SocialShareButton({
 
 ```jsx
 new SocialShareButton({
-  url: 'https://example.com',       // Optional: defaults to window.location.href
+  container: '#share-button',        // Required: CSS selector or DOM element
+  url: 'https://example.com',        // Optional: defaults to window.location.href
   title: 'Custom Title',             // Optional: defaults to document.title
+  buttonText: 'Share',               // Optional: button label text
   buttonStyle: 'primary',            // default | primary | compact | icon-only
   theme: 'dark',                     // dark | light
   platforms: ['twitter', 'linkedin'] // Optional: defaults to all platforms
 });
 ```
 
-### Available Platforms
+### All Available Options
 
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `container` | string/Element | - | **Required.** CSS selector or DOM element |
+| `url` | string | `window.location.href` | URL to share |
+| `title` | string | `document.title` | Share title/headline |
+| `description` | string | `''` | Additional description text |
+| `hashtags` | array | `[]` | Hashtags for posts (e.g., `['js', 'webdev']`) |
+| `via` | string | `''` | Twitter handle (without @) |
+| `platforms` | array | All platforms | Platforms to show (see below) |
+| `buttonText` | string | `'Share'` | Button label text |
+| `buttonStyle` | string | `'default'` | `default`, `primary`, `compact`, `icon-only` |
+| `buttonColor` | string | `''` | Custom button background color |
+| `buttonHoverColor` | string | `''` | Custom button hover color |
+| `customClass` | string | `''` | Additional CSS class for button |
+| `theme` | string | `'dark'` | `dark` or `light` |
+| `modalPosition` | string | `'center'` | Modal position on screen |
+| `showButton` | boolean | `true` | Show/hide the share button |
+| `onShare` | function | `null` | Callback when user shares: `(platform, url) => {}` |
+| `onCopy` | function | `null` | Callback when user copies link: `(url) => {}` |
+
+**Available Platforms:**  
 `whatsapp`, `facebook`, `twitter`, `linkedin`, `telegram`, `reddit`, `email`
+
+### Customize Share Message/Post Text
+
+Control the text that appears when users share to social platforms:
+
+```jsx
+new SocialShareButton({
+  container: '#share-button',
+  url: 'https://myproject.com',
+  title: 'Check out my awesome project!',            // Main title/headline
+  description: 'An amazing tool for developers',     // Additional description
+  hashtags: ['javascript', 'webdev', 'opensource'], // Hashtags included in posts
+  via: 'MyProjectHandle'                            // Your Twitter handle
+});
+```
+
+**How messages are customized per platform:**
+- **WhatsApp:** `title` + `description` + `hashtags` + link
+- **Facebook:** `title` + `description` + `hashtags` + link
+- **Twitter/X:** `title` + `description` + `hashtags` + `via` handle + link
+- **Telegram:** `title` + `description` + `hashtags` + link
+- **LinkedIn:** `title` + `description` + link
+- **Reddit:** `title` - `description` (used as title)
+- **Email:** Subject = `title`, Body = `description` + link
+
+### Customize Button Color & Appearance
+
+**Option 1: Use Pre-built Styles** (Easiest)
+
+```jsx
+new SocialShareButton({
+  container: '#share-button',
+  buttonStyle: 'primary'   // or 'default', 'compact', 'icon-only'
+});
+```
+
+**Option 2: Programmatic Color Customization** (Recommended)
+
+Pass `buttonColor` and `buttonHoverColor` to match your project's color scheme:
+
+```jsx
+new SocialShareButton({
+  container: '#share-button',
+  buttonColor: '#ff6b6b',      // Button background color
+  buttonHoverColor: '#ff5252'  // Hover state color
+});
+```
+
+**Option 3: CSS Class Customization** (Advanced)
+
+For more complex styling, use a custom CSS class:
+
+```jsx
+new SocialShareButton({
+  container: '#share-button',
+  buttonStyle: 'primary',
+  customClass: 'my-custom-button'
+});
+```
+
+Then in your CSS file:
+
+```css
+/* Override the button background color */
+.my-custom-button.social-share-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Customize hover state */
+.my-custom-button.social-share-btn:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+```
+
+**Color Examples:**
+
+```jsx
+// Material Design Red
+new SocialShareButton({
+  container: '#share-button',
+  buttonColor: '#f44336',
+  buttonHoverColor: '#da190b'
+});
+
+// Tailwind Blue
+new SocialShareButton({
+  container: '#share-button',
+  buttonColor: '#3b82f6',
+  buttonHoverColor: '#2563eb'
+});
+
+// Custom Brand Color
+new SocialShareButton({
+  container: '#share-button',
+  buttonColor: '#your-brand-color',
+  buttonHoverColor: '#your-brand-color-dark'
+});
+```
 
 ### Button Styles
 
@@ -481,27 +660,31 @@ new SocialShareButton({
 ## Demo
 
 Open `index.html` in your browser to see all features.
+Tutorial: https://youtu.be/cLJaT-8rEvQ?si=CLipA0Db4WL0EqKM
 
 ---
 
 ## Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
+We welcome contributions of all kinds! To contribute:
+
+1. Fork the repository and create your feature branch (`git checkout -b feature/AmazingFeature`).
+2. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+3. Run the development workflow commands to ensure code quality:
+   - `npm run format:write`
+   - `npm run lint:fix`
+   - `npm run typecheck`
+4. Push your branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request for review.
+
+If you encounter bugs, need help, or have feature requests:
+
+- Please open an issue in this repository providing detailed information.
+- Describe the problem clearly and include any relevant logs or screenshots.
+
+We appreciate your feedback and contributions!
+
+This project is licensed under the GNU General Public License v3.0.
+See the [LICENSE](LICENSE) file for details.
 
 ---
-
-## License
-
-MIT © 2025 The Stable Order
-
----
-
-## Links
-
-- **npm:** https://www.npmjs.com/package/social-share-button-aossie
-- **GitHub:** https://github.com/AOSSIE-Org/SocialShareButton
-- **CDN:** https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.0/

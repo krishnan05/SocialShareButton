@@ -196,6 +196,55 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Custom Button Color Themes */
+    .btn-red.social-share-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    .btn-red.social-share-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    .btn-green.social-share-btn {
+      background-color: #10b981;
+      color: white;
+    }
+    .btn-green.social-share-btn:hover {
+      background-color: #059669;
+    }
+
+    .btn-blue.social-share-btn {
+      background-color: #3b82f6;
+      color: white;
+    }
+    .btn-blue.social-share-btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-purple.social-share-btn {
+      background-color: #a855f7;
+      color: white;
+    }
+    .btn-purple.social-share-btn:hover {
+      background-color: #7e22ce;
+    }
+
+    .btn-orange.social-share-btn {
+      background-color: #f97316;
+      color: white;
+    }
+    .btn-orange.social-share-btn:hover {
+      background-color: #ea580c;
+    }
+
+    .btn-pink.social-share-btn {
+      background-color: #ec4899;
+      color: white;
+    }
+    .btn-pink.social-share-btn:hover {
+      background-color: #db2777;
+    }
   </style>
 </head>
 <body>
@@ -268,6 +317,44 @@
           <h3>Icon Only</h3>
           <p>Minimal footprint</p>
           <div id="demo-icon"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Color Demo -->
+    <div class="demo-section">
+      <h2>🎨 Custom Button Colors</h2>
+      <p>Customize button colors to match your brand palette</p>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Red Theme</h3>
+          <p>#f44336 - Material Red</p>
+          <div id="demo-red"></div>
+        </div>
+        <div class="demo-item">
+          <h3>Green Theme</h3>
+          <p>#10b981 - Emerald Green</p>
+          <div id="demo-green"></div>
+        </div>
+        <div class="demo-item">
+          <h3>Blue Theme</h3>
+          <p>#3b82f6 - Sky Blue</p>
+          <div id="demo-blue"></div>
+        </div>
+        <div class="demo-item">
+          <h3>Purple Theme</h3>
+          <p>#a855f7 - Custom Purple</p>
+          <div id="demo-purple"></div>
+        </div>
+        <div class="demo-item">
+          <h3>Orange Theme</h3>
+          <p>#f97316 - Vibrant Orange</p>
+          <div id="demo-orange"></div>
+        </div>
+        <div class="demo-item">
+          <h3>Pink Theme</h3>
+          <p>#ec4899 - Hot Pink</p>
+          <div id="demo-pink"></div>
         </div>
       </div>
     </div>
@@ -348,7 +435,7 @@ function App() {
     <footer>
       <p>Made with ❤️ by the AOSSIE community</p>
       <p style="margin-top: 10px; opacity: 0.7;">
-        MIT Licensed | 
+        GPL v3 Licensed | 
         <a href="https://github.com/AOSSIE-Org/SocialShareButton" style="color: #fff;">GitHub</a> | 
         <a href="https://github.com/AOSSIE-Org/SocialShareButton/issues" style="color: #fff;">Issues</a>
       </p>
@@ -434,6 +521,71 @@ function App() {
       platforms: ['whatsapp', 'telegram'],
       buttonText: 'Share'
     });
+
+    // Custom Colors - Red
+    new SocialShareButton({
+      container: '#demo-red',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#f44336',
+      buttonHoverColor: '#d32f2f',
+      buttonText: 'Share'
+    });
+
+    // Custom Colors - Green
+    new SocialShareButton({
+      container: '#demo-green',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#10b981',
+      buttonHoverColor: '#059669',
+      buttonText: 'Share'
+    });
+
+    // Custom Colors - Blue
+    new SocialShareButton({
+      container: '#demo-blue',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#3b82f6',
+      buttonHoverColor: '#1d4ed8',
+      buttonText: 'Share'
+    });
+
+    // Custom Colors - Purple
+    new SocialShareButton({
+      container: '#demo-purple',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#a855f7',
+      buttonHoverColor: '#7e22ce',
+      buttonText: 'Share'
+    });
+
+    // Custom Colors - Orange
+    new SocialShareButton({
+      container: '#demo-orange',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#f97316',
+      buttonHoverColor: '#ea580c',
+      buttonText: 'Share'
+    });
+
+    // Custom Colors - Pink
+    new SocialShareButton({
+      container: '#demo-pink',
+      url: demoUrl,
+      title: demoTitle,
+      description: demoDescription,
+      buttonColor: '#ec4899',
+      buttonHoverColor: '#db2777',
+      buttonText: 'Share'
     });
   </script>
 </body>
