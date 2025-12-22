@@ -75,8 +75,8 @@ Lightweight social sharing component for web applications. Zero dependencies, fr
 ### Via CDN (Recommended)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
-<script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css">
+<script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
 ```
 
 ---
@@ -93,11 +93,11 @@ Lightweight social sharing component for web applications. Zero dependencies, fr
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css">
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
 </body>
 ```
 
@@ -150,13 +150,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link 
           rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css" 
+          href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css" 
         />
       </head>
       <body>
         {children}
         <Script 
-          src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"
+          src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"
           strategy="beforeInteractive"
         />
       </body>
@@ -244,13 +244,13 @@ export default function Document() {
       <Head>
         <link 
           rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css" 
+          href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css" 
         />
       </Head>
       <body>
         <Main />
         <NextScript />
-        <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
       </body>
     </Html>
   );
@@ -327,11 +327,11 @@ declare global {
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css">
 </head>
 <body>
   <div id="app"></div>
-  <script src="https://cdn.jsdelivr.net/gh/kpj2006/share@v1.0.3/src/social-share-button.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
 </body>
 ```
 
