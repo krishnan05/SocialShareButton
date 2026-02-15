@@ -82,12 +82,19 @@ class SocialShareButton {
         </div>
         <div class="social-share-link-container">
           <div class="social-share-link-input">
-            <input type="text" value="${this.options.url}" readonly aria-label="URL to share">
           </div>
           <button class="social-share-copy-btn">Copy</button>
         </div>
       </div>
     `;
+
+    const urlInputContainer = modal.querySelector('.social-share-link-input');
+    const urlInput = document.createElement('input');
+    urlInput.type = 'text';
+    urlInput.value = this.options.url;
+    urlInput.readOnly = true;
+    urlInput.setAttribute('aria-label', 'URL to share');
+    urlInputContainer.appendChild(urlInput);
 
     this.modal = modal;
     document.body.appendChild(modal);
