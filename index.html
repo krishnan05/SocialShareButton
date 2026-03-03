@@ -364,10 +364,10 @@
       <h2>🚀 Quick Start</h2>
       <p>Get started in seconds with minimal setup</p>
       
-      <div class="code-block">
+<div class="code-block">
   <button class="copy-btn" aria-label="Copy code">Copy</button>
-<span class="copy-status" aria-live="polite" style="position:absolute; left:-9999px;"></span>
-<code>// Include CSS and JS
+  <span class="copy-status" aria-live="polite" style="position:absolute; left:-9999px;"></span>
+  <code>
 &lt;link rel="stylesheet" href="social-share-button.css"&gt;
 &lt;script src="social-share-button.js"&gt;&lt;/script&gt;
 
@@ -387,7 +387,9 @@ new SocialShareButton({
       <p>First-class React support with hooks</p>
       
       <div class="code-block">
-  <button class="copy-btn">Copy</button>
+  <button class="copy-btn" aria-label="Copy code">Copy</button>
+  <span class="copy-status" aria-live="polite" style="position:absolute; left:-9999px;"></span>
+  <code>
 <code>import SocialShareButton from 'social-share-button';
 
 function App() {
@@ -579,21 +581,23 @@ copyButtons.forEach((button) => {
 const text = codeBlock ? codeBlock.innerText : '';
 
     navigator.clipboard.writeText(text).then(() => {
-      const originalText = button.textContent;
-      button.textContent = 'Copied!';
-      button.style.background = '#10b981';
+  const originalText = button.textContent;
 
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.style.background = '#667eea';
-      }, 2000);
-    }).catch(() => {
-  button.textContent = 'Failed';
-  button.style.background = '#ef4444';
+  // Find aria-live span
+  const statusSpan = button.nextElementSibling;
+
+  if (statusSpan && statusSpan.classList.contains("copy-status")) {
+    statusSpan.textContent = "Code copied to clipboard";
+  }
+
+  button.textContent = "Copied!";
 
   setTimeout(() => {
-    button.textContent = 'Copy';
-    button.style.background = '#667eea';
+    button.textContent = originalText;
+
+    if (statusSpan && statusSpan.classList.contains("copy-status")) {
+      statusSpan.textContent = "";
+    }
   }, 2000);
 });
   });
