@@ -1,6 +1,6 @@
 # Contributing to SocialShareButton
 
-Thank you for your interest in contributing to **SocialShareButton**! 🚀  
+Thank you for your interest in contributing to **SocialShareButton**! 🚀
 We welcome contributions from everyone.
 
 This document provides guidelines to help you contribute effectively and keep the project clean and maintainable.

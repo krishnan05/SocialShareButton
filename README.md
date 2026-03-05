@@ -678,9 +678,13 @@ We welcome contributions of all kinds! To contribute:
 
 1. Fork the repository and create your feature branch (`git checkout -b feature/AmazingFeature`).
 2. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-3. Test your changes by opening `index.html` in your browser to verify functionality.
-4. Push your branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request for review.
+3. Run code quality checks:
+   - `npm run lint` - Check for code issues
+   - `npm run format:check` - Check code formatting
+   - `npm run format` - Auto-format code
+4. Test your changes by opening `index.html` in your browser to verify functionality.
+5. Push your branch (`git push origin feature/AmazingFeature`).
+6. Open a Pull Request for review.
 
 If you encounter bugs, need help, or have feature requests:
 
