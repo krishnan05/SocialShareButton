@@ -46,6 +46,7 @@ class SocialShareButton {
 
     this.openTimeout = null;  // Track setTimeout for openModal animation
     this.closeTimeout = null; // Track setTimeout for closeModal animation
+    this.feedbackTimeout = null; // Track setTimeout for copy feedback reset
     this.ownsBodyLock = false; // Track if this instance owns the body overflow lock
     this.eventsAttached = false; // Guard against multiple attachEvents() calls
 
@@ -415,9 +416,18 @@ class SocialShareButton {
             this.options.onCopy(this.options.url);
           }
 
-          setTimeout(() => {
-            copyBtn.textContent = "Copy";
-            copyBtn.classList.remove("copied");
+          // Clear any existing feedback timeout
+          if (this.feedbackTimeout) {
+            clearTimeout(this.feedbackTimeout);
+          }
+
+          // Track feedback timeout to prevent callback after destroy
+          this.feedbackTimeout = setTimeout(() => {
+            if (copyBtn) { // Safety check in case destroy() was called
+              copyBtn.textContent = "Copy";
+              copyBtn.classList.remove("copied");
+            }
+            this.feedbackTimeout = null;
           }, 2000);
         })
         .catch((err) => {
@@ -444,15 +454,34 @@ class SocialShareButton {
         this.options.onCopy(this.options.url);
       }
 
-      setTimeout(() => {
-        copyBtn.textContent = "Copy";
-        copyBtn.classList.remove("copied");
+      // Clear any existing feedback timeout
+      if (this.feedbackTimeout) {
+        clearTimeout(this.feedbackTimeout);
+      }
+
+      // Track feedback timeout to prevent callback after destroy
+      this.feedbackTimeout = setTimeout(() => {
+        if (copyBtn) { // Safety check in case destroy() was called
+          copyBtn.textContent = "Copy";
+          copyBtn.classList.remove("copied");
+        }
+        this.feedbackTimeout = null;
       }, 2000);
     } catch (err) {
       console.error("Fallback copy failed:", err);
       copyBtn.textContent = "Failed";
-      setTimeout(() => {
-        copyBtn.textContent = "Copy";
+      
+      // Clear any existing feedback timeout
+      if (this.feedbackTimeout) {
+        clearTimeout(this.feedbackTimeout);
+      }
+
+      // Track feedback timeout to prevent callback after destroy
+      this.feedbackTimeout = setTimeout(() => {
+        if (copyBtn) { // Safety check in case destroy() was called
+          copyBtn.textContent = "Copy";
+        }
+        this.feedbackTimeout = null;
       }, 2000);
     }
   }
@@ -469,6 +498,10 @@ class SocialShareButton {
     if (this.closeTimeout) {
       clearTimeout(this.closeTimeout);
       this.closeTimeout = null;
+    }
+    if (this.feedbackTimeout) {
+      clearTimeout(this.feedbackTimeout);
+      this.feedbackTimeout = null;
     }
 
     // Remove custom color handlers
