@@ -366,9 +366,9 @@ document.addEventListener('keydown', this.handleKeydown);
 
   destroy() {
     if (this.handleKeydown) {
-  document.removeEventListener('keydown', this.handleKeydown);
-  this.handleKeydown = null;
-}
+      document.removeEventListener("keydown", this.handleKeydown);
+      this.handleKeydown = null;
+    }
     if (this.button && this.customColorMouseEnterHandler) {
       this.button.removeEventListener(
         "mouseenter",
