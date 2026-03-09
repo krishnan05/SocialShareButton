@@ -7,15 +7,15 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,
-      },
-    },
-    settings: {
-      ecmaFeatures: {
-        jsx: true,
       },
     },
     rules: {
