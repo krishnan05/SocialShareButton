@@ -42,6 +42,7 @@ class SocialShareButton {
     this.button = null;
     this.customColorMouseEnterHandler = null;
     this.customColorMouseLeaveHandler = null;
+    this.handleKeydown = null;
     this.listeners = []; // Central registry for all event listeners
 
     this.openTimeout = null;  // Track setTimeout for openModal animation
@@ -292,17 +293,18 @@ class SocialShareButton {
     const inputSelectHandler = (e) => e.target.select();
     this.addEventListener(input, "click", inputSelectHandler);
 
-    // ESC key to close (document-level listener - critical for memory leak prevention)
-    const escapeHandler = (e) => {
+    // ESC key to close
+    this.handleKeydown = (e) => {
       if (e.key === "Escape" && this.isModalOpen) {
         this.closeModal();
       }
     };
-    this.addEventListener(document, "keydown", escapeHandler);
+    if (typeof document !== "undefined") {
+       document.addEventListener("keydown", this.handleKeydown);
+    }
 
     this.eventsAttached = true; // Mark as attached
   }
-
   openModal() {
     // Safety check: prevent errors if modal was destroyed
     if (!this.modal) return;
@@ -495,6 +497,12 @@ class SocialShareButton {
   }
 
   destroy() {
+    if (this.handleKeydown) {
+      if (typeof document !== "undefined") {
+        document.removeEventListener("keydown", this.handleKeydown);
+      }
+      this.handleKeydown = null;
+    }
     // Mark as destroyed to prevent async callbacks
     this.isDestroyed = true;
 
