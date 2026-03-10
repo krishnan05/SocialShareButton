@@ -5,7 +5,7 @@
 language: en
 
 # Enable experimental features
-early_access: true
+early_access: false
 
 chat:
   # CodeRabbit will automatically respond to @coderabbitai mentions in PR comments
@@ -34,7 +34,7 @@ reviews:
   sequence_diagrams: true
 
   # Include poems in reviews
-  poem: true
+  poem: false
 
   # Show review completion status
   review_status: true
@@ -45,7 +45,7 @@ reviews:
   # Include summary of all changed files
   changed_files_summary: true
 
-  # Automatically request changes on the PR (just leave comments)
+  # Automatically request changes on the PR when issues are found
   request_changes_workflow: true
 
   # Pre-merge checks to enforce before merging PRs
@@ -170,8 +170,6 @@ reviews:
         **Flag any newly added or modified function or hook that lacks descriptive inline comments.**
         
         **React Best Practices:**
-        - Avoid 'any' in TypeScript, use explicit types
-        - Prefer 'import type' for type imports
         - Ensure proper React hooks usage
         - Check for unnecessary re-renders
         - Validate prop types
