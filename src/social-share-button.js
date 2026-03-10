@@ -182,6 +182,7 @@ class SocialShareButton {
     const { url, title, description, hashtags, via } = this.options;
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);
+    // const encodedDesc = encodeURIComponent(description);
     const hashtagString = hashtags.length ? "#" + hashtags.join(" #") : "";
 
     // Build platform-specific messages with customizable parameters
@@ -305,7 +306,7 @@ class SocialShareButton {
   openModal() {
     // Safety check: prevent errors if modal was destroyed
     if (!this.modal) return;
-    
+
     this.isModalOpen = true;
     this.modal.style.display = "flex";
 
@@ -344,7 +345,7 @@ class SocialShareButton {
 
   closeModal() {
     if (!this.modal) return; // Safety check
-    
+
     this.modal.classList.remove("active");
 
     // Clear any pending animations (both open and close to prevent race conditions)
@@ -369,7 +370,7 @@ class SocialShareButton {
             SocialShareButton.openModalCount--;
           }
           this.ownsBodyLock = false; // Release the lock
-          
+
           // Restore original overflow only when all modals are closed
           if (SocialShareButton.openModalCount === 0) {
             document.body.style.overflow = SocialShareButton.originalBodyOverflow || "";
@@ -474,7 +475,7 @@ class SocialShareButton {
       }, 2000);
     } catch (_err) {
       copyBtn.textContent = "Failed";
-      
+
       // Clear any existing feedback timeout
       if (this.feedbackTimeout) {
         clearTimeout(this.feedbackTimeout);
@@ -541,7 +542,7 @@ class SocialShareButton {
         SocialShareButton.openModalCount--;
       }
       this.ownsBodyLock = false; // Release the lock
-      
+
       // Restore original overflow only when all modals are closed
       if (SocialShareButton.openModalCount === 0) {
         document.body.style.overflow = SocialShareButton.originalBodyOverflow || "";
