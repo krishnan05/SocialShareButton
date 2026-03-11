@@ -4,8 +4,8 @@
 # Language for CodeRabbit's review comments
 language: en
 
-# Disable experimental features (currently not using any specific early_access features)
-early_access: false
+# Enable experimental features 
+early_access: true
 
 chat:
   # CodeRabbit will automatically reply to PR comments when auto_reply is true
@@ -63,9 +63,8 @@ reviews:
 
   # Include summary of all changed files
   changed_files_summary: true
-
-  # Comment-only reviews: false = leaves review comments without blocking PR approval or requesting changes
-  request_changes_workflow: false
+# Request changes workflow: true = requests changes and blocks PR approval when issues found
+  request_changes_workflow: true
 
   # Pre-merge checks to enforce before merging PRs
   pre_merge_checks:
