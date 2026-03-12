@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "preact/hooks";
+
 /**
  * A Preact wrapper around the vanilla SocialShareButton library.
  * Initializes the widget on mount, syncs prop changes via updateOptions,
@@ -43,47 +44,58 @@ export default function SocialShareButton({
   const containerRef = useRef(null);
   const shareButtonRef = useRef(null);
 
+  useEffect(() => {
+    let checkInterval = null;
+
+    const initButton = () => {
+       if (shareButtonRef.current) return;
+      if (containerRef.current) {
+        shareButtonRef.current = new window.SocialShareButton({
+          container: containerRef.current,
+          url: url || window.location.href,
+          title: title || document.title,
+          description,
+          hashtags,
+          via,
+          platforms,
+          theme,
+          buttonText,
+          customClass,
+          onShare,
+          onCopy,
+          buttonStyle,
+          modalPosition,
+        });
+      }
+    };
+
+    if (typeof window === "undefined") return () => {};
+
+    if (window.SocialShareButton) {
+      initButton();
+    } else {
+      checkInterval = setInterval(() => {
+        if (window.SocialShareButton) {
+          clearInterval(checkInterval);
+          checkInterval = null;
+          initButton();
+        }
+      }, 100);
+    }
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+      if (shareButtonRef.current) {
+        shareButtonRef.current.destroy();
+        shareButtonRef.current = null;
+      }
+    };
+  }, []);
+
+// Serialize arrays to detect actual value changes vs. new array references
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
 
-
-useEffect(() => {
-  const initButton = () => {
-    if (containerRef.current) {
-      shareButtonRef.current = new window.SocialShareButton({
-        container: containerRef.current,
-        url: url || window.location.href,
-        title: title || document.title,
-        description, hashtags, via, platforms,
-        theme, buttonText, customClass,
-        onShare, onCopy, buttonStyle, modalPosition,
-      });
-    }
-  };
-
-  if (typeof window === "undefined") return;
-
-  if (window.SocialShareButton) {
-    initButton();
-  } else {
-    const checkInterval = setInterval(() => {
-      if (window.SocialShareButton) {
-        clearInterval(checkInterval);
-        initButton();
-      }
-    }, 100);
-    return () => clearInterval(checkInterval);
-  }
-
-  return () => {
-    if (shareButtonRef.current) {
-      shareButtonRef.current.destroy();
-      shareButtonRef.current = null;
-    }
-  };
-}, []);
-
-   useEffect(() => {
+  useEffect(() => {
     if (shareButtonRef.current) {
       shareButtonRef.current.updateOptions({
         url,
