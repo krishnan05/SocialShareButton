@@ -47,27 +47,32 @@ export default function SocialShareButton({
   useEffect(() => {
     let checkInterval = null;
 
+    const resolvedUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+    const resolvedTitle =
+      title || (typeof document !== "undefined" ? document.title : "");
+
     const initButton = () => {
-       if (shareButtonRef.current) return;
-      if (containerRef.current) {
-        shareButtonRef.current = new window.SocialShareButton({
-          container: containerRef.current,
-          url: url || window.location.href,
-          title: title || document.title,
-          description,
-          hashtags,
-          via,
-          platforms,
-          theme,
-          buttonText,
-          customClass,
-          onShare,
-          onCopy,
-          buttonStyle,
-          modalPosition,
-        });
-      }
-    };
+  if (shareButtonRef.current) return;
+  if (containerRef.current) {
+    shareButtonRef.current = new window.SocialShareButton({
+      container: containerRef.current,
+      url: resolvedUrl,
+      title: resolvedTitle,
+      description,
+      hashtags,
+      via,
+      platforms,
+      theme,
+      buttonText,
+      customClass,
+      onShare,
+      onCopy,
+      buttonStyle,
+      modalPosition,
+    });
+  }
+};
 
     if (typeof window === "undefined") return () => {};
 
@@ -91,15 +96,19 @@ export default function SocialShareButton({
     };
   }, []);
 
-// Serialize arrays to detect actual value changes vs. new array references
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
 
   useEffect(() => {
+    const resolvedUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+    const resolvedTitle =
+      title || (typeof document !== "undefined" ? document.title : "");
+
     if (shareButtonRef.current) {
       shareButtonRef.current.updateOptions({
-        url,
-        title,
+        url: resolvedUrl,
+        title: resolvedTitle,
         description,
         hashtags,
         via,
