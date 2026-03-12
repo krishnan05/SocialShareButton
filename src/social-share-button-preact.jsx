@@ -47,6 +47,11 @@ export default function SocialShareButton({
   useEffect(() => {
     let checkInterval = null;
 
+    const resolvedUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+    const resolvedTitle =
+      title || (typeof document !== "undefined" ? document.title : "");
+
     const initButton = () => {
        if (shareButtonRef.current) return;
       if (containerRef.current) {
@@ -91,11 +96,15 @@ export default function SocialShareButton({
     };
   }, []);
 
-// Serialize arrays to detect actual value changes vs. new array references
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
 
   useEffect(() => {
+    const resolvedUrl =
+      url || (typeof window !== "undefined" ? window.location.href : "");
+    const resolvedTitle =
+      title || (typeof document !== "undefined" ? document.title : "");
+
     if (shareButtonRef.current) {
       shareButtonRef.current.updateOptions({
         url: resolvedUrl,
@@ -114,8 +123,8 @@ export default function SocialShareButton({
       });
     }
   }, [
-    resolvedUrl,
-    resolvedTitle,
+    url,
+    title,
     description,
     hashtagsDep,
     via,
