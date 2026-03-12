@@ -282,31 +282,12 @@ reviews:
     # Path-based review instructions for specific files/patterns
     - path: "src/**/*.{js,jsx}"
       instructions: |
-        Require body-level inline comments for all code elements as detailed below:
+        Ensure newly added or modified methods and properties have brief inline comments:
         
-        **METHODS (Public and Private Functions):**
-        Every method must include:
+        - Use minimal, concise inline comments (not JSDoc style)
+        - Add comments for logical blocks explaining what they do
+        - Add comments for edge cases and non-obvious logic (safety checks, race condition prevention, re-entrancy guards, cleanup callbacks, etc.)
+        - No need to document parameters or return values
+        - Not every function needs comments - only add where it aids understanding
         
-        (a) Inline "what" descriptions for each logical block within the method body (not just restating the code, but explaining the purpose of each block).
-        
-        (b) "Why" explanations for non-obvious logic, guards, and edge-case handling, including but not limited to:
-            - Re-entrancy guards and reference counting
-            - Safety checks after destroy/cleanup callbacks
-            - Race condition prevention
-            - Timeout/animation cleanup
-            - State management locks
-        
-        (c) Parameter descriptions explaining what each parameter accepts and its purpose.
-        
-        (d) Return value descriptions where applicable, explaining what the function returns.
-        
-        Flag any newly added or modified method that lacks these body-level inline comments covering (a) what, (b) why with guard/edge-case explanations, (c) parameters, and (d) return values.
-        
-        **PROPERTIES (Significant Properties):**
-        Every significant property must include:
-        
-        (a) Inline "what" description explaining the purpose and role of the property.
-        
-        (b) "Why" explanation for non-obvious property usage, initialization patterns, or state management purposes.
-        
-        Flag any newly added or modified property that lacks these inline comments covering (a) what the property stores/represents and (b) why it exists or how it's used.
+        Flag any newly added or modified function or property that lacks descriptive inline comments for non-obvious logic or edge cases.
