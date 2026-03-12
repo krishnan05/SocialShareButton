@@ -44,21 +44,16 @@ export default function SocialShareButton({
   const containerRef = useRef(null);
   const shareButtonRef = useRef(null);
 
-  const resolvedUrl =
-    url || (typeof window !== "undefined" ? window.location.href : "");
-  const resolvedTitle =
-    title || (typeof document !== "undefined" ? document.title : "");
-
   useEffect(() => {
     let checkInterval = null;
 
     const initButton = () => {
-      if (shareButtonRef.current) return;
+       if (shareButtonRef.current) return;
       if (containerRef.current) {
         shareButtonRef.current = new window.SocialShareButton({
           container: containerRef.current,
-          url: resolvedUrl,
-          title: resolvedTitle,
+          url: url || window.location.href,
+          title: title || document.title,
           description,
           hashtags,
           via,
@@ -87,7 +82,6 @@ export default function SocialShareButton({
         }
       }, 100);
     }
-
     return () => {
       if (checkInterval) clearInterval(checkInterval);
       if (shareButtonRef.current) {
