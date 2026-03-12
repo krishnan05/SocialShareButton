@@ -745,6 +745,7 @@ class SocialShareButton {
 
     // Optional console output for development / debugging
     if (this.options.debug) {
+      // eslint-disable-next-line no-console
       console.log("[SocialShareButton Analytics]", payload);
     }
 
