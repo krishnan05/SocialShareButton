@@ -321,6 +321,7 @@ class SocialShareButton {
 
     this.isModalOpen = true;
     this.modal.style.display = "flex";
+    this._emit("social_share_popup_open", "popup_open");
 
     // Shared body overflow management: only increment counter if this instance doesn't already own the lock
     if (typeof document !== "undefined" && document.body) {
