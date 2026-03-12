@@ -278,3 +278,11 @@ reviews:
         - Proper @2x and @3x variants for different screen densities
         - SVG assets are optimized
         - Font files are licensed and optimized
+    
+    # Path-based review instructions for specific files/patterns
+    - path: "src/**/*.js"
+      instructions: |
+        Ensure all public and private methods and significant properties have clear inline comments addressing:
+        1. What each logical block does (not just restating the code).
+        2. Why non-obvious logic exists (e.g., re-entrancy guards, reference counting, safety checks after destroy).
+        Flag any newly added or modified function or property that lacks descriptive inline comments.
