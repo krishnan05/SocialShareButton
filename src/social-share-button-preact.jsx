@@ -43,33 +43,39 @@ export default function SocialShareButton({
 }) {
   const containerRef = useRef(null);
   const shareButtonRef = useRef(null);
+  const latestOptionsRef = useRef(null);
+
+  const resolvedUrl =
+    url || (typeof window !== "undefined" ? window.location.href : "");
+  const resolvedTitle =
+    title || (typeof document !== "undefined" ? document.title : "");
+
+  // Keep latest props so delayed init doesn't use stale values.
+  latestOptionsRef.current = {
+    url: resolvedUrl,
+    title: resolvedTitle,
+    description,
+    hashtags,
+    via,
+    platforms,
+    theme,
+    buttonText,
+    customClass,
+    onShare,
+    onCopy,
+    buttonStyle,
+    modalPosition,
+  };
 
   useEffect(() => {
     let checkInterval = null;
-
-    const resolvedUrl =
-      url || (typeof window !== "undefined" ? window.location.href : "");
-    const resolvedTitle =
-      title || (typeof document !== "undefined" ? document.title : "");
 
     const initButton = () => {
       if (shareButtonRef.current) return;
       if (containerRef.current) {
         shareButtonRef.current = new window.SocialShareButton({
           container: containerRef.current,
-          url: resolvedUrl,
-          title: resolvedTitle,
-          description,
-          hashtags,
-          via,
-          platforms,
-          theme,
-          buttonText,
-          customClass,
-          onShare,
-          onCopy,
-          buttonStyle,
-          modalPosition,
+          ...latestOptionsRef.current,
         });
       }
     };
@@ -104,11 +110,6 @@ export default function SocialShareButton({
   const platformsDep = JSON.stringify(platforms);
 
   useEffect(() => {
-    const resolvedUrl =
-      url || (typeof window !== "undefined" ? window.location.href : "");
-    const resolvedTitle =
-      title || (typeof document !== "undefined" ? document.title : "");
-
     if (shareButtonRef.current) {
       shareButtonRef.current.updateOptions({
         url: resolvedUrl,
