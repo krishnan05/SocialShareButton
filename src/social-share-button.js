@@ -706,6 +706,17 @@ class SocialShareButton {
   }
 
   /**
+   * Logs analytics warnings only when debug mode is enabled.
+   * @param {string} message - Description of the failed analytics path.
+   * @param {Error} err - The caught error instance.
+   */
+  _debugWarn(message, err) {
+    if (!this.options.debug) return;
+    // eslint-disable-next-line no-console
+    console.warn("[SocialShareButton Analytics]", message, err);
+  }
+
+  /**
    * Emits an analytics event through all configured delivery paths.
    *
    * Standard payload schema
@@ -763,8 +774,8 @@ class SocialShareButton {
         });
         const el = this._getContainer();
         (el || document).dispatchEvent(domEvent);
-      } catch (_) {
-        // Ignore DOM event errors; analytics is best-effort.
+      } catch (err) {
+        this._debugWarn("DOM event dispatch failed", err);
       }
     }
 
@@ -772,8 +783,8 @@ class SocialShareButton {
     if (typeof this.options.onAnalytics === "function") {
       try {
         this.options.onAnalytics(payload);
-      } catch (_) {
-        // Ignore analytics handler errors to avoid breaking share flow.
+      } catch (err) {
+        this._debugWarn("onAnalytics callback failed", err);
       }
     }
 
@@ -783,8 +794,8 @@ class SocialShareButton {
         if (plugin && typeof plugin.track === "function") {
           try {
             plugin.track(payload);
-          } catch (_) {
-            // Ignore plugin errors to keep analytics best-effort.
+          } catch (err) {
+            this._debugWarn("plugin.track() failed", err);
           }
         }
       }
