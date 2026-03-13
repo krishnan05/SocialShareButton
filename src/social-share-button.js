@@ -711,6 +711,7 @@ class SocialShareButton {
    * @param {Error} err - The caught error instance.
    */
   _debugWarn(message, err) {
+    // _debugWarn: emit analytics warnings only in debug mode for visibility.
     if (!this.options.debug) return;
     // eslint-disable-next-line no-console
     console.warn("[SocialShareButton Analytics]", message, err);
