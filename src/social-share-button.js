@@ -763,14 +763,18 @@ class SocialShareButton {
         });
         const el = this._getContainer();
         (el || document).dispatchEvent(domEvent);
-      } catch (_) {}
+      } catch (_) {
+        // Ignore DOM event errors; analytics is best-effort.
+      }
     }
 
     // Path 2 — onAnalytics callback (direct, single-consumer hook)
     if (typeof this.options.onAnalytics === "function") {
       try {
         this.options.onAnalytics(payload);
-      } catch (_) {}
+      } catch (_) {
+        // Ignore analytics handler errors to avoid breaking share flow.
+      }
     }
 
     // Path 3 — plugin / adapter registry (supports multiple simultaneous consumers)
@@ -779,7 +783,9 @@ class SocialShareButton {
         if (plugin && typeof plugin.track === "function") {
           try {
             plugin.track(payload);
-          } catch (_) {}
+          } catch (_) {
+            // Ignore plugin errors to keep analytics best-effort.
+          }
         }
       }
     }
