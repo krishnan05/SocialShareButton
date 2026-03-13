@@ -5,7 +5,7 @@ export const SocialShareButton = ({
   title,
   description = "",
   hashtags = [],
-via = "",
+  via = "",
   platforms = [
     "whatsapp",
     "facebook",
