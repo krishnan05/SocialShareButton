@@ -53,9 +53,7 @@ export default function SocialShareButton({
       title || (typeof document !== "undefined" ? document.title : "");
 
     const initButton = () => {
-      // Re-entrancy guard: avoid double-instantiating the widget.
       if (shareButtonRef.current) return;
-      // Fast-exit if the container ref isn't ready or has unmounted.
       if (containerRef.current) {
         shareButtonRef.current = new window.SocialShareButton({
           container: containerRef.current,
