@@ -53,7 +53,9 @@ export default function SocialShareButton({
       title || (typeof document !== "undefined" ? document.title : "");
 
     const initButton = () => {
+      // Re-entrancy guard: avoid double-instantiating the widget.
       if (shareButtonRef.current) return;
+      // Fast-exit if the container ref isn't ready or has unmounted.
       if (containerRef.current) {
         shareButtonRef.current = new window.SocialShareButton({
           container: containerRef.current,
@@ -74,13 +76,16 @@ export default function SocialShareButton({
       }
     };
 
+    // SSR guard: window is undefined during server render.
     if (typeof window === "undefined") return () => {};
 
     if (window.SocialShareButton) {
       initButton();
     } else {
+      // Poll until the script registers the global, then initialize once.
       checkInterval = setInterval(() => {
         if (window.SocialShareButton) {
+          // Stop polling as soon as the library is available.
           clearInterval(checkInterval);
           checkInterval = null;
           initButton();
@@ -88,6 +93,7 @@ export default function SocialShareButton({
       }, 100);
     }
     return () => {
+      // Cleanup: stop polling and destroy the instance on unmount.
       if (checkInterval) clearInterval(checkInterval);
       if (shareButtonRef.current) {
         shareButtonRef.current.destroy();
