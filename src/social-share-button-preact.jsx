@@ -94,7 +94,6 @@ export default function SocialShareButton({
 
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
-  const analyticsPluginsDep = JSON.stringify(analyticsPlugins);
 
   useEffect(() => {
     if (shareButtonRef.current) {
@@ -135,7 +134,7 @@ export default function SocialShareButton({
     modalPosition,
     analytics,
     onAnalytics,
-    analyticsPluginsDep,
+    analyticsPlugins,
     componentId,
     debug,
   ]);
