@@ -1,24 +1,5 @@
 import { useEffect, useRef } from "preact/hooks";
 
-/**
- * A Preact wrapper around the vanilla SocialShareButton library.
- * Initializes the widget on mount, syncs prop changes via updateOptions,
- * and destroys the instance on unmount.
- *
- * @param {string} url - URL to share (defaults to current page)
- * @param {string} title - Share title (defaults to document.title)
- * @param {string} description - Share description
- * @param {string[]} hashtags - Hashtags for supported platforms
- * @param {string} via - Twitter via handle
- * @param {string[]} platforms - Platforms to display
- * @param {string} theme - 'dark' | 'light'
- * @param {string} buttonText - Label on the share button
- * @param {string} customClass - Extra CSS class on the container
- * @param {Function|null} onShare - Callback fired on share
- * @param {Function|null} onCopy - Callback fired on link copy
- * @param {string} buttonStyle - Button style variant
- * @param {string} modalPosition - 'center' | 'top' | 'bottom'
- */
 export default function SocialShareButton({
   url = "",
   title = "",
