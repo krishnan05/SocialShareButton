@@ -51,11 +51,6 @@ export default function SocialShareButton({
     onCopy,
     buttonStyle,
     modalPosition,
-    analytics,
-    onAnalytics,
-    analyticsPlugins,
-    componentId,
-    debug,
   };
 
   useEffect(() => {
