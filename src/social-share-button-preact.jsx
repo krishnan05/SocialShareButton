@@ -21,6 +21,11 @@ export default function SocialShareButton({
   onCopy = null,
   buttonStyle = "default",
   modalPosition = "center",
+  analytics = true,
+  onAnalytics = null,
+  analyticsPlugins = [],
+  componentId = null,
+  debug = false,
 }) {
   const containerRef = useRef(null);
   const shareButtonRef = useRef(null);
@@ -46,6 +51,11 @@ export default function SocialShareButton({
     onCopy,
     buttonStyle,
     modalPosition,
+    analytics,
+    onAnalytics,
+    analyticsPlugins,
+    componentId,
+    debug,
   };
 
   useEffect(() => {
@@ -89,6 +99,7 @@ export default function SocialShareButton({
 
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
+  const analyticsPluginsDep = JSON.stringify(analyticsPlugins);
 
   useEffect(() => {
     if (shareButtonRef.current) {
@@ -106,6 +117,11 @@ export default function SocialShareButton({
         onCopy,
         buttonStyle,
         modalPosition,
+        analytics,
+        onAnalytics,
+        analyticsPlugins,
+        componentId,
+        debug,
       });
     }
   }, [
@@ -122,6 +138,11 @@ export default function SocialShareButton({
     onCopy,
     buttonStyle,
     modalPosition,
+    analytics,
+    onAnalytics,
+    analyticsPluginsDep,
+    componentId,
+    debug,
   ]);
 
   return <div ref={containerRef}></div>;
