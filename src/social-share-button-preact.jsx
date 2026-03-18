@@ -61,7 +61,7 @@ export default function SocialShareButton({
   useEffect(() => {
     let checkInterval = null;
     let attempts = 0;
-    const MAX_POLL_ATTEMPTS = 300;// ~30s at 100ms
+    const MAX_POLL_ATTEMPTS = 300; // ~30s at 100ms
 
     const initButton = () => {
       if (shareButtonRef.current) return;
@@ -82,17 +82,26 @@ export default function SocialShareButton({
       // Poll until the script registers the global, then initialize once.
       checkInterval = setInterval(() => {
         attempts += 1;
+
         if (window.SocialShareButton) {
           // Stop polling as soon as the library is available.
           clearInterval(checkInterval);
           checkInterval = null;
           initButton();
-          } else if (attempts >= MAX_POLL_ATTEMPTS) {
-+          clearInterval(checkInterval);
-            checkInterval = null;
+        } else if (attempts >= MAX_POLL_ATTEMPTS) {
+          // Stop polling after max attempts to avoid infinite loop.
+          clearInterval(checkInterval);
+          checkInterval = null;
+
+          if (debug) {
+            console.warn(
+              "SocialShareButton: CDN script did not load within timeout."
+            );
+          }
         }
       }, 100);
     }
+
     return () => {
       if (checkInterval) clearInterval(checkInterval);
       if (shareButtonRef.current) {
@@ -101,6 +110,7 @@ export default function SocialShareButton({
       }
     };
   }, []);
+
   // Normalize array deps to avoid re-running updateOptions on new array references with same values.
   const hashtagsDep = JSON.stringify(hashtags);
   const platformsDep = JSON.stringify(platforms);
