@@ -291,12 +291,16 @@ jobs:
             if (existingSizeLabels.length > 0) {
               console.log(`Removing outdated size labels: ${existingSizeLabels.join(', ')}`);
               for (const label of existingSizeLabels) {
-                await github.rest.issues.removeLabel({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: prNumber,
-                  name: label
-                });
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: prNumber,
+                    name: label
+                  });
+                } catch (error) {
+                  console.log(`Error removing size label ${label}: ${error.message}`);
+                }
               }
             }
             
