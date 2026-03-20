@@ -123,7 +123,7 @@ No matter which framework you use, integration always follows the same 3 steps:
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
+  <script src=""></script>
 </body>
 ```
 
@@ -202,7 +202,7 @@ export default function RootLayout({
       <body>
         {children}
         <Script
-          src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"
+          src=""
           strategy="beforeInteractive"
         />
       </body>
@@ -442,12 +442,12 @@ new window.SocialShareButton({
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css"
+    href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.4/src/social-share-button.css"
   />
 </head>
 <body>
   <div id="app"></div>
-  <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.4/src/social-share-button.js"></script>
 </body>
 ```
 
