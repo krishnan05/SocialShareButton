@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Github } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -23,10 +23,12 @@ export function Navbar() {
           {/* Right actions */}
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-4 text-sm font-medium">
-               <span className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-                 <Github className="w-4 h-4" />
-                 Star on Github - 1.8k
-               </span>
+            <a 
+              href="https://github.com/AOSSIE-Org/SocialShareButton"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+            ></a>
             </div>
 
             <button

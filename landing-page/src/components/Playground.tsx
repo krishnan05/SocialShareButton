@@ -1,3 +1,4 @@
+"use client";
 export function Playground() {
   return (
     <div className="py-24 bg-background">
@@ -27,7 +28,7 @@ export function Playground() {
             </div>
             
             {/* The Output Mockup */}
-            <div className="rounded-2xl border-2 border-[#FFCC00] bg-neutral-900 dark:bg-[#111] p-8 shadow-[0_0_40px_rgba(255,204,0,0.15)] w-full max-w-[450px]">
+            <div className="relative rounded-2xl border-2 border-[#FFCC00] bg-neutral-900 dark:bg-[#111] p-8 shadow-[0_0_40px_rgba(255,204,0,0.15)] w-full max-w-[450px]">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-serif text-3xl font-bold text-center w-full text-[#00C853] dark:text-[#a3e635]">Share this Page</h3>
                 <button className="absolute right-6 top-6 text-[#FFCC00] border border-[#FFCC00] rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold opacity-80 hover:opacity-100 transition-opacity">✕</button>
@@ -64,12 +65,6 @@ export function Playground() {
                   Share
                 </button>
               </div>
-            </div>
-            
-            <div className="mt-8 flex justify-center">
-               <button className="bg-[#FFCC00] text-black px-12 py-3 rounded-full text-lg font-bold w-48 hover:bg-[#e6b800] transition-colors shadow-lg relative ml-6">
-                  Share
-               </button>
             </div>
           </div>
           

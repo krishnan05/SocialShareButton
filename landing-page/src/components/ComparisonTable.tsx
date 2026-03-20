@@ -1,3 +1,4 @@
+"use client";
 export function ComparisonTable() {
   const comparisonData = [
     { feature: "Bundle size", yours: "< 10KB", addthis: "300KB+", sharethis: "250KB+" },
