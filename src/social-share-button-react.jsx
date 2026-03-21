@@ -86,7 +86,7 @@ export const SocialShareButton = ({
    * Synchronizes React prop changes with the underlying vanilla JS instance 
    * without re-mounting the entire component.
    */
-  // Re-run effect when any relevant prop changes to sync with underlying instance
+  
   useEffect(() => {
     if (shareButtonRef.current) {
       // Use the library's built-in update method
