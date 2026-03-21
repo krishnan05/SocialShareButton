@@ -439,31 +439,33 @@ function App() {
     </div>
 
 
-  <!--demo Integration-->
+  <!--Qwik/QwikCity Integration-->
   <div class="demo-section">
   <h2>⚡ Qwik / QwikCity Integration</h2>
   <p>Resumability-optimized wrapper for the fastest performance.</p>
   
   <div class="code-block">
-    <button class="copy-btn" aria-label="Copy code">Copy</button>
+    <button class="copy-btn" type="button" aria-label="Copy code">Copy</button>
     <span class="copy-status" aria-live="polite" style="position:absolute; left:-9999px;"></span>
     <code>
       &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.css"&gt;
       &lt;script src="https://cdn.jsdelivr.net/gh/AOSSIE-Org/SocialShareButton@v1.0.3/src/social-share-button.js"&gt;&lt;/script&gt;
     </code>
     <code>import { component$ } from '@builder.io/qwik';
-  import { SocialShareButton } from './social-share-button-qwik';
+    import { SocialShareButton } from './social-share-button-qwik';
 
-  export default component$(() => (
-  &lt;SocialShareButton
+    export default component$(() => (
+    &lt;SocialShareButton
     url="https://your-website.com"
     theme="light"
     buttonText="Share Now"
     buttonStyle="primary"
-  /&gt;
-));</code>
+    /&gt;
+  ));</code>
   </div>
 </div>
+
+
 
     <!-- CTA Section -->
     <div class="cta-section">
