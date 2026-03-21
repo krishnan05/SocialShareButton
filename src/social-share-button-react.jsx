@@ -22,11 +22,11 @@ export const SocialShareButton = ({
   buttonStyle = "default",
   modalPosition = "center",
   
-  // Analytics props — the library emits events but never collects data itself.
+  // Analytics: library emits events but never collects data
   analytics = true,
-  onAnalytics = null, // (payload) => void hook
-  analyticsPlugins = [], // Array of adapter instances (see social-share-analytics.js)
-  componentId = null, // Optional unique identifier for this instance
+  onAnalytics = null, // Event callback
+  analyticsPlugins = [], // Event adapters (see social-share-analytics.js)
+  componentId = null, // Instance identifier
   debug = false, // Log events to console during development
 }) => {
   // DOM reference for the injection target
