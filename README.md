@@ -61,27 +61,10 @@
 <h1>SocialShareButton</h1>
 </div>
 
-
+Lightweight social sharing component for web applications. Zero dependencies, framework-agnostic.
 
 [![npm version](https://img.shields.io/npm/v/social-share-button-aossie.svg)](https://www.npmjs.com/package/social-share-button-aossie)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-
----
-
-## 📁 Project Structure
-
-```text
-SocialShareButton/
-├── src/
-│   ├── social-share-button.js        # Core Vanilla JS library
-│   ├── social-share-button.css       # Core styles (required)
-│   ├── social-share-analytics.js     # Analytics adapters (GA4, Mixpanel, etc.)
-│   ├── social-share-button-react.jsx # React wrapper component
-│   └── social-share-button-preact.jsx # Preact wrapper component
-├── public/                           # Static assets & logos
-├── docs/                             # Documentation guides
-└── index.html                        # Local demo & development sandbox
-```
 
 ---
 
